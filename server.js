@@ -36,46 +36,50 @@ app.use(methodOverride());
 
 var Schema = mongoose.Schema;
 
-var dataSchema = new Schema({
-  username: String,
-  password: String,
-  email: String
+var itemSchema = new Schema({
+  name: String,
+  price: Number,
+  poi: Array,
+  info: Array,
+  img: String
 }, {
     versionKey: false
 });
 
-var Data = mongoose.model('Data', dataSchema);
+var Item = mongoose.model('Item', itemSchema);
 
-app.get('/api/data', function(req, res, next){
-  Data.find(function(err, data){
+app.get('/api/item', function(req, res, next){
+  Item.find(function(err, item){
     if(err){
       res.send(err);
     }
-    res.json(data);
+    res.json(item);
   });
 });
 
-app.post('/api/data', function(req, res, next){
-  Data.create({
-    username: req.body.username,
-    password: req.body.password,
-    email: req.body.email
-  }, function(err, data){
+app.post('/api/item', function(req, res, next){
+  Item.create({
+    name: req.body.name,
+    price: req.body.price,
+    POI: req.body.poi,
+    info: req.body.info,
+    img: req.body.img
+  }, function(err, item){
       if(err){
         res.send(err);
       }
-      res.json(data);
+      res.json(item);
   });
 });
 
-app.delete('/api/data/:data_id', function(req, res, next){
-  Data.remove({
-    _id: req.params.data_id
-  }, function(err, data){
+app.delete('/api/item/:item_id', function(req, res, next){
+  Item.remove({
+    _id: req.params.item_id
+  }, function(err, item){
     if(err){
       res.send(err);
     }
-    res.json(data);
+    res.json(item);
   });
 });
 
