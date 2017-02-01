@@ -4,7 +4,7 @@
   "description": "demo application for william sonoma interview",
   "main": "server.js",
   "scripts": {
-    "start": "gulp"
+    "start": "node server.js"
   },
   "author": "Daniel Lopez",
   "license": "ISC",
