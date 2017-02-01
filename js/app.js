@@ -2,7 +2,7 @@ angular.module('wsiApp',[])
   .controller('mainCtrl', ['$scope','$http', function($scope,$http){
     $scope.dataInit = function(){
       console.log('this is happening')
-      $http.get('localhost:3000/api/data')
+      $http.get('https://quiet-headland-38798.herokuapp.com/api/data')
         .then(function(res){
             console.log(res)
         })
