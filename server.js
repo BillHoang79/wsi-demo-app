@@ -61,7 +61,7 @@ app.post('/api/item', function(req, res, next){
   Item.create({
     name: req.body.name,
     price: req.body.price,
-    POI: req.body.poi,
+    poi: req.body.poi,
     info: req.body.info,
     img: req.body.img
   }, function(err, item){
