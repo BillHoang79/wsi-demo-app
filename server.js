@@ -38,7 +38,7 @@ var Schema = mongoose.Schema;
 
 var itemSchema = new Schema({
   name: String,
-  price: Number,
+  price: String,
   poi: Array,
   info: Array,
   img: String
