@@ -41,7 +41,7 @@ var itemSchema = new Schema({
   price: String,
   poi: Array,
   info: Array,
-  img: String
+  img: Object
 }, {
     versionKey: false
 });
