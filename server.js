@@ -64,4 +64,8 @@ app.delete('/api/data/:data_id', function(req, res, next){
   });
 });
 
+app.get('*', function(req, res){
+	res.sendfile('./public/index.html');
+})
+
 app.listen(process.env.PORT || 3000);
