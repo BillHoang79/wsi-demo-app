@@ -1,12 +1,139 @@
 <!DOCTYPE html>
 <html ng-app="wsiApp">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <meta charset="utf-8">
-    <title>WSI Demo App Api</title>
+    <title>WSI PAGE</title>
   </head>
   <body>
-    <div class="container" ng-controller="mainCtrl" ng-init="dataInit()">
-      <div class="col-xs-4 col-xs-offset-4"> WSI DEMO APP API</div>
+    <div class="container-fluid" ng-controller="mainCtrl" ng-init="dataInit()">
+      <!-- Banner -->
+      <div class="col-xs-12 text-center">
+        <div class="col-md-4 col-md-offset-4">
+          <h1 class="heading">WILLIAMS<br>SONOMA</h1>
+          <hr class="no-pad hr-split-center">
+          <h3 class="no-pad state">{{state}}</h3>
+        </div>
+      </div>
+      <!-- End Banner -->
+      <!-- Navbar -->
+      <div class="navbar hidden-sm hidden-md hidden-lg">
+        <div class="col-xs-12 no-pad">
+          <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapser" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">WILLIAMS SONOMA</a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="collapser">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">COOKWARE <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">COOK'S TOOLS</a></li>
+                  <li><a href="#">CUTLERY</a></li>
+                  <li><a href="#">ELECTRICS</a></li>
+                  <li><a href="#">BAKEWARE</a></li>
+                  <li><a href="#">FOOD</a></li>
+                  <li><a href="#">TABLETOP & BAR</a></li>
+                  <li><a href="#">HOMEKEEPING</a></li>
+                  <li><a href="#">OUTDOOR</a></li>
+                  <li><a href="#">SALE</a></li>
+                  <li><a href="#">WILLIAMS-SONOMA HOME</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- End Navbar -->
+      <div class="navbar hidden-xs">
+        <div class="col-xs-1 nav-link text-center">
+            COOKWARE
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            COOK'S TOOLS
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            CUTLERY
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            ELECTRICS
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            BAKEWARE
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            FOOD
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            TABLETOP & BAR
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            HOMEKEEPING
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            OUTDOOR
+        </div>
+        <div class="col-xs-1 nav-link text-center">
+            SALE
+        </div>
+        <div class="col-xs-2 home-nav-link text-center">
+            WILLIAMS-SONOMA HOME
+        </div>
+      </div>
+      <!-- End navbar -->
+      <div class="row">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item text-muted">Home</li>
+            <li class="breadcrumb-item text-muted">Homekeeping</li>
+            <li class="breadcrumb-item text-muted">Aprons</li>
+            <li class="breadcrumb-item text-muted">Adult Aprons</li>
+            <li class="breadcrumb-item">{{item.name}}</li>
+          </ol>
+      </div>
+      <div class="row">
+        <div class="col-sm-7">
+          <img class="img-responsive" src="assets/{{item.img}}">
+        </div>
+        <div class="col-sm-5" ng-model="item">
+          <h5>{{item.name}}</h5>
+          <p>A generously sized apron is a necessity in any kitchen, and ours will brighten yours with lively color. Sewn of thick cotton, it can be personalized or monogrammed with up to nine characters, all the same height, embroidered in your choice of color. An apron of this quality makes a welcome gift for any cook</p>
+          <ul>
+            <li ng-repeat="i in item.poi">{{i}}</li>
+          </ul>
+          <p>{{item.price}}</p>
+          <input type="number" min="0" max="30" step="1" ng-value="item.quantity" ng-model="item.quantity"/>
+          <br><button class="add-button"> Add To Cart <span class="glyphicon glyphicon-triangle-right"></span> </button>
+          <hr class="no-pad hr-split">
+          <div ng-repeat="i in item.info">
+            <h3 class="expand" ng-if="$first" ng-init="i.toggle = true" ng-click="toggle(i)"><span class="glyphicon" ng-class="i.toggle ? 'glyphicon-triangle-bottom':'glyphicon-triangle-right'"></span> {{i.toggle == true ? "EXPANDED":"COLLAPSED"}}</h3>
+            <p ng-if="$first" ng-show="i.toggle">{{i.info}}</p>
+            <h3 class="expand" ng-if="!$first" ng-click="toggle(i)"><span class="glyphicon" ng-class="i.toggle ? 'glyphicon-triangle-bottom':'glyphicon-triangle-right'"></span> {{i.toggle == true ? "EXPANDED":"COLLAPSED"}}</h3>
+            <p ng-if="!$first" ng-show="i.toggle">{{i.info}}</p>
+            <hr ng-if="!$last">
+            <hr ng-if="$last" class="no-pad hr-split">
+          </div>
+        </div>
+        <div class="col-xs-7">
+          <div class="col-xs-2 pull-left" ng-repeat="image in smallImages">
+            <img ng-if="$first" ng-init="image.active = true" ng-click="activate(image)" ng-class="image.active == true ? 'active':''" src="assets/{{image.img}}">
+            <img ng-if="!$first" src="assets/{{image.img}}" ng-class="image.active == true ? 'active':''" ng-click="activate(image)">
+          </div>
+        </div>
+      </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"> </script>
+    <script src="js/app.js"></script>
   </body>
 </html>
