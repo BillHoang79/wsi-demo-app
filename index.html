@@ -114,7 +114,22 @@
           </ul>
           <p>{{item.price}}</p>
           <input type="number" min="0" max="30" step="1" ng-value="item.quantity" ng-model="item.quantity"/>
-          <br><button class="add-button"> Add To Cart <span class="glyphicon glyphicon-triangle-right"></span> </button>
+
+          <br><button type="button" data-toggle="modal" data-target="#myModal" class="add-button"> Add To Cart <span class="glyphicon glyphicon-triangle-right"></span> </button>
+          <!-- Confirmation Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  {{item.quantity}} {{item.name}} Added To Cart!
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <hr class="no-pad hr-split">
           <div ng-repeat="i in item.info">
             <h3 class="expand" ng-if="$first" ng-init="i.toggle = true" ng-click="toggle(i)"><span class="glyphicon" ng-class="i.toggle ? 'glyphicon-triangle-bottom':'glyphicon-triangle-right'"></span> {{i.toggle == true ? "EXPANDED":"COLLAPSED"}}</h3>
