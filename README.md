@@ -23,9 +23,9 @@
   ** This code will launch a express application listening at port 3000 also, simultaneously start the client-side app in the browser. **
   
 ## Interacting with the API 
-  1) GET data
+ 1) GET data
     send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of GET and retrieve all items in this                 collection.
-  2) POST data
+ 2) POST data
     send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of POST accompanied by an object with the following model: 
     ```
     var itemSchema = new Schema({
