@@ -25,6 +25,7 @@
 ## Interacting with the API 
  1) GET data
     send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of GET and retrieve all items in this                 collection.
+    
  2) POST data
     send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of POST accompanied by an object with the following model: 
     ```
