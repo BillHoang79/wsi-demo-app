@@ -8,7 +8,7 @@
   ```
   $ git clone https://github.com/macaframa/wsi-demo-app.git
   ```
-  2) Change Directory to folder folder: 
+  2) Change Directory to folder: 
   ```
   $ cd wsi-demo-app
   ```
@@ -26,7 +26,7 @@
   1) GET data
     send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of GET and retrieve all items in this                 collection.
   2) POST data
-    send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of POST accompanied by an object with the             following model: 
+    send http request to https://quiet-headland-38798.herokuapp.com/api/item with method of POST accompanied by an object with the following model: 
     ```
     var itemSchema = new Schema({
       name: String,
@@ -40,6 +40,6 @@
     ```
     ** referenced directly from my code **
 
-  3) DELETE data from thise resource by sending an http request to https://quiet-headland-38798.herokuapp.com/api/item/:item_id to              delete that specific item from the database. 
+  3) DELETE data from thise resource by sending an http request to https://quiet-headland-38798.herokuapp.com/api/item/:item_id to delete that specific item from the database. 
 
 # I really love your company and products and am very interested in joining your team. Please enjoy this application. 
