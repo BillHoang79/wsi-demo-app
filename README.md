@@ -42,5 +42,3 @@
     ** referenced directly from my code **
 
   3) DELETE data from thise resource by sending an http request to https://quiet-headland-38798.herokuapp.com/api/item/:item_id to delete that specific item from the database. 
-
-# I really love your company and products and am very interested in joining your team. Please enjoy this application. 
